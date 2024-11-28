@@ -14,6 +14,9 @@
     cursor: pointer;
 }
 
+.additional-info {
+    margin-top: 10px;
+}
 
 hr {
     margin: 1rem 0;
@@ -136,19 +139,20 @@ hr {
             echo '<hr class="hr">'; 
         ?>
 
-
-
-
         <div class="row fmb-14 justify-content-between align-items-center">
-            <label for="name" class="col-sm-2 col-eForm-label">{{ get_phrase('Additional information') }}</label>
-            <div class="col-sm-10 col-md-9 col-lg-10">
-                <input type="text" class="form-control eForm-control" id="name" name="name"
-                    placeholder="Enter student information" required>
-                <?php
-                        echo '<button class="styled-button mt-3 me-3">+</button>';
-                        echo '<button class="styled-button">-</button>';
-                    ?>
+            <label for="additionalinfo" class="col-sm-2 col-eForm-label">Additional Information</label>
+            <div class="col-sm-10 col-md-9 col-lg-10" id="additionalInfoContainer">
+                <div class="additional-info-wrapper">
+                    <input type="text" class="form-control eForm-control " name="additionalinfo[]"
+                        placeholder="Enter student information" required>
+
+                </div>
             </div>
+            <div class="additional-info-wrapper col-sm-3 d-flex justify-content-end">
+                <button type="button" class="styled-button mt-3 me-3" onclick="addField()">+</button>
+                <button type="button" class="styled-button mt-3" onclick="removeField(this)">-</button>
+            </div>
+
         </div>
 
         <?php
@@ -163,3 +167,39 @@ hr {
         </div>
     </form>
 </div>
+
+
+<script>
+function addField() {
+    const container = document.getElementById('additionalInfoContainer');
+
+    // Create wrapper div
+    const wrapper = document.createElement('div');
+    wrapper.className = 'additional-info-wrapper';
+
+    // Create input field
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'form-control eForm-control mt-2 mb-2';
+    input.name = 'additionalinfo[]';
+    input.placeholder = 'Enter student information';
+    input.required = true;
+
+    // Append input to wrapper
+    wrapper.appendChild(input);
+
+    // Add wrapper to container
+    container.appendChild(wrapper);
+}
+
+function removeField(buttonElement) {
+    // Prevent removing the last field
+    const container = document.getElementById('additionalInfoContainer');
+    if (container.children.length > 1) {
+        const wrapper = container.lastElementChild;
+        wrapper.remove();
+    } else {
+        alert('At least one information field must remain.');
+    }
+}
+</script>

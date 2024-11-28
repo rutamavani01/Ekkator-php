@@ -1225,7 +1225,8 @@ class AdminController extends Controller
             'birthday' => strtotime($data['eDefaultDateRange']),
             'phone' => $data['phone'],
             'address' => $data['address'],
-            'photo' => $photo
+            'photo' => $photo,
+            'additionalinfo'=>$data['additionalinfo']
         );
         $data['user_information'] = json_encode($info);
 

@@ -1,16 +1,16 @@
+
+
 <?php $__env->startSection('content'); ?>
 
 <style type="text/css">
-
-.login-image{
-    width: inherit; 
-    height: 100%; 
-    position: fixed; 
-    background-image: url('public/assets/images/login.png'); 
-    background-size: cover; 
+.login-image {
+    width: inherit;
+    height: 100%;
+    position: fixed;
+    background-image: url('<?php echo e(asset('assets/images/login.png')); ?>');
+    background-size: cover;
     background-position: center;
 }
-
 </style>
 
 <div class="row h-100">
@@ -36,25 +36,29 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                                 <input type="email" name="email" class="form-control" id="email"
-                                                  placeholder="Your email address">
+                                                    placeholder="Your email address">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="password" class="form-label"><?php echo e(get_phrase('Password')); ?></label>
+                                            <label for="password"
+                                                class="form-label"><?php echo e(get_phrase('Password')); ?></label>
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                                <input type="password" name="password" class="form-control border-end" id="password"
-                                                  placeholder="Input your password">
+                                                <input type="password" name="password" class="form-control border-end"
+                                                    id="password" placeholder="Input your password">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="w-100 d-flex justify-content-end">
-                                                <a href="<?php echo e(route('password.request')); ?>" class="float-end"><?php echo e(get_phrase('Forgot password')); ?></a>
+                                                <a href="<?php echo e(route('password.request')); ?>"
+                                                    class="float-end"><?php echo e(get_phrase('Forgot password')); ?></a>
                                                 <i class="bi bi-record-fill text-5px mx-1 px-1"></i>
-                                                <a href="<?php echo e(get_settings('help_link')); ?>" target="_blank" class="float-end me-1"><?php echo e(get_phrase('Help')); ?></a>
+                                                <a href="<?php echo e(get_settings('help_link')); ?>" target="_blank"
+                                                    class="float-end me-1"><?php echo e(get_phrase('Help')); ?></a>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary w-100"><?php echo e(get_phrase('Login')); ?></button>
+                                        <button type="submit"
+                                            class="btn btn-primary w-100"><?php echo e(get_phrase('Login')); ?></button>
                                     </div>
                                 </form>
                             </div>
@@ -66,5 +70,4 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.signin_page', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Ekattor8\resources\views/auth/login.blade.php ENDPATH**/ ?>
